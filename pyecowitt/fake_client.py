@@ -7,6 +7,8 @@ import urllib.parse
 
 MY_PASSKEY = '34271334ED1FADA6D8B988B14267E55D'
 # MY_PASSKEY = '35271334ED1FADA7D8B988B22222E22D'
+CCLEL_MODEL = 'C6079A'
+CCLEL_PASSWORD = 'PASSWORD'
 
 paramset_a = {
     'PASSKEY': MY_PASSKEY,
@@ -85,6 +87,29 @@ paramset_b = {
     'model': 'HP1000SE-PRO_Pro_V1.6.0',
 }
 
+# Paramset for CCLEL Art. No. C6079A
+# Bresser Art. No. 7902586 (WIFI ClearView 7in1)
+paramset_c = {
+    'ID': CCLEL_MODEL,
+    'PASSWORD': CCLEL_PASSWORD,
+    'action' : 'updateraww',
+    'realtime' : 1,
+    'rtfreq' : 5,
+    'dateutc': 'now',
+    'baromin': 29.91, # relative pressure, indoor
+    'tempf': 73.0, # outdoor
+    'dewptf' : 51.6, # outdoor
+    'humidity': 47, # outdoor
+    'windspeedmph': 0.0,
+    'windgustmph': 0.0,
+    'winddir' : 219,
+    'rainin' : 0.0, # past 60 minutes
+    'dailyrainin' : 0.01, # since midnight
+    'solarradiation' : 0.0,
+    'UV' : 0.0,
+    'indoortempf' : 72.5,
+    'indoorhumidity' : 44,
+}
 
 def usage():
     print("Usage: {0} host port".format(sys.argv[0]))

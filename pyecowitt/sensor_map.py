@@ -807,5 +807,51 @@ SENSOR_MAP = {
         MAP_NAME: "model",
         MAP_SYSTEM: None,
         MAP_STYPE: EcoWittSensorTypes.internal,
+    # Begin CCLEL specific sensors
+    }, "baromin": {
+        MAP_NAME: "Relative Pressure",
+        MAP_SYSTEM: SYSTEM_IMPERIAL,
+        MAP_STYPE: EcoWittSensorTypes.pressure_inhg,
+    }, "rainin": {
+        MAP_NAME: "Hourly Rain Rate",
+        MAP_SYSTEM: SYSTEM_IMPERIAL,
+        MAP_STYPE: EcoWittSensorTypes.rate_inches,
+    }, "indoorhumidity": {
+        MAP_NAME: "Indoor Humidity",
+        MAP_SYSTEM: None,
+        MAP_STYPE: EcoWittSensorTypes.humidity,
+    }, "indoortempf": {
+        MAP_NAME: "Indoor Temperature",
+        MAP_SYSTEM: SYSTEM_IMPERIAL,
+        MAP_STYPE: EcoWittSensorTypes.temperature_f,
+    }, "dewptf": {
+        MAP_NAME: "Dewpoint",
+        MAP_SYSTEM: SYSTEM_IMPERIAL,
+        MAP_STYPE: EcoWittSensorTypes.temperature_f,
+    }, "UV": {
+        MAP_NAME: "UV Index",
+        MAP_SYSTEM: None,
+        MAP_STYPE: EcoWittSensorTypes.uv_index,
+     }, "ID": {
+         MAP_NAME: "id",
+         MAP_SYSTEM: None,
+         MAP_STYPE: EcoWittSensorTypes.internal,
+    }, "PASSWORD": {
+        MAP_NAME: "password",
+        MAP_SYSTEM: None,
+        MAP_STYPE: EcoWittSensorTypes.internal,
+    }, "action": {
+        MAP_NAME: "action",
+        MAP_SYSTEM: None,
+        MAP_STYPE: EcoWittSensorTypes.internal,
+    }, "realtime": {
+        MAP_NAME: "realtime",
+        MAP_SYSTEM: None,
+        MAP_STYPE: EcoWittSensorTypes.internal,
+    }, "rtfreq": {
+        MAP_NAME: "rtfreq",
+        MAP_SYSTEM: None,
+        MAP_STYPE: EcoWittSensorTypes.internal,
+    # End CCLEL specific sensors
     }
 }
