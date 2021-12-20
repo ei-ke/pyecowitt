@@ -8,6 +8,7 @@ from aiohttp import web
 import logging
 import math
 import time
+from urllib import parse
 
 from .sensor_map import (
     EcoWittSensorTypes,
@@ -21,7 +22,6 @@ ECOWITT_LISTEN_PORT = 4199
 WINDCHILL_OLD = 0
 WINDCHILL_NEW = 1
 WINDCHILL_HYBRID = 2
-
 
 class EcoWittSensor:
     """An internal sensor to the ecowitt."""
@@ -291,6 +291,9 @@ class EcoWittListener:
         if "baromabsin" in data:
             data["baromabsin"] = float(data["baromabsin"])
             data["baromabshpa"] = round(data["baromabsin"] * in_hpa, 2)
+        if "baromin" in data:
+            data["baromin"] = float(data["baromin"])
+            data["baromrelhpa"] = round(data["baromin"] * in_hpa, 2)
 
         # Calculated values for fun!
         if "tempf" in data and "windspeedmph" in data:
@@ -418,7 +421,26 @@ class EcoWittListener:
                 except:
                     pass
 
-        return web.Response(text="OK")
+            return web.Response(text="OK")
+
+        if (request.method == 'GET'):
+            data = request.query
+            # data is not a dict, it's a MultiDict
+            data_copy = {}
+            for k in data.keys():
+                data_copy[k] = data[k]
+            weather_data = self.convert_units(data_copy)
+            self.last_values = weather_data.copy()
+            self.data_valid = True
+            self.lastupd = time.time()
+            self.parse_ws_data(weather_data)
+            for rl in self.r_listeners:
+                try:
+                    await rl(weather_data)
+                except:
+                    pass
+
+            return web.Response(text="OK")
 
     async def wait_for_valid_data(self):
         """ Wait for valid data, then return true. """
