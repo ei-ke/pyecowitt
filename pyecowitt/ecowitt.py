@@ -421,7 +421,7 @@ class EcoWittListener:
                 except:
                     pass
 
-        return web.Response(text="OK")
+            return web.Response(text="OK")
 
         if (request.method == 'GET'):
             data = request.query
@@ -440,7 +440,7 @@ class EcoWittListener:
                 except:
                     pass
 
-        return web.Response(text="OK")
+            return web.Response(text="OK")
 
     async def wait_for_valid_data(self):
         """ Wait for valid data, then return true. """
