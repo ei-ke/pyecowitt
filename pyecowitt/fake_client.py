@@ -7,8 +7,7 @@ import urllib.parse
 
 MY_PASSKEY = '34271334ED1FADA6D8B988B14267E55D'
 # MY_PASSKEY = '35271334ED1FADA7D8B988B22222E22D'
-CCLEL_MODEL = 'C6079A'
-CCLEL_PASSWORD = 'PASSWORD'
+MY_PASSWORD = 'PASSWORD'
 
 paramset_a = {
     'PASSKEY': MY_PASSKEY,
@@ -90,8 +89,8 @@ paramset_b = {
 # Paramset for CCLEL Art. No. C6079A
 # Bresser Art. No. 7902586 (WIFI ClearView 7in1)
 paramset_c = {
-    'ID': CCLEL_MODEL,
-    'PASSWORD': CCLEL_PASSWORD,
+    'ID': '',
+    'PASSWORD': MY_PASSWORD,
     'action' : 'updateraww',
     'realtime' : 1,
     'rtfreq' : 5,
